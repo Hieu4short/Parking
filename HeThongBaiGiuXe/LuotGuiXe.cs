@@ -16,14 +16,6 @@ namespace HeThongBaiGiuXe
     public partial class LuotGuiXe : Form
     {
 
-
-        private DataSet data = new DataSet();
-        public string TenLoaiXe { get; set; }
-        public string DinhDanhXe { get; set; }
-        public string IdTheGuiXe { get; set; }
-        public string TrangThai { get; set; }
-        public string ThoiGianNhanXe { get; set; }
-        public string ThoiGianTraXe { get; set; }
         public LuotGuiXe()
         {
             InitializeComponent();
@@ -43,15 +35,15 @@ namespace HeThongBaiGiuXe
                 adapter.Fill(table);
 
                 // Thiết lập ComboBox
-                comboBoxLoaiXe.DisplayMember = "TenLoaiXe"; // Hiển thị tên loại xe
-                comboBoxLoaiXe.ValueMember = "id"; // Giá trị thực sự được chọn là Id
-                comboBoxLoaiXe.DataSource = table; // Đặt nguồn dữ liệu cho ComboBox
+                //comboBoxLoaiXe.DisplayMember = "TenLoaiXe"; // Hiển thị tên loại xe
+                //comboBoxLoaiXe.ValueMember = "id"; // Giá trị thực sự được chọn là Id
+                //comboBoxLoaiXe.DataSource = table; // Đặt nguồn dữ liệu cho ComboBox
             }
         }
 
         private void LoadIDTheGuiXeComboBox()
         {
-            string query = "SELECT * FROM TheGuiXe WHERE TrangThaiThe = 'Trống'";
+            string query = "SELECT * FROM TheGuiXe WHERE TrangThaiThe = N'Trống'";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -60,22 +52,19 @@ namespace HeThongBaiGiuXe
                 adapter.Fill(table);
 
                 // Thiết lập ComboBox
-                comboBoxIDTheGuiXe.DisplayMember = "MaSoThe"; // Hiển thị trạng thái thẻ gửi xe
-                comboBoxIDTheGuiXe.ValueMember = "id";
-                comboBoxIDTheGuiXe.DataSource = table; // Đặt nguồn dữ liệu cho ComboBox
+                //comboBoxIDTheGuiXe.DisplayMember = "MaSoThe"; // Hiển thị trạng thái thẻ gửi xe
+                //comboBoxIDTheGuiXe.ValueMember = "id";
+                //comboBoxIDTheGuiXe.DataSource = table; // Đặt nguồn dữ liệu cho ComboBox
             }
         }
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-        private void button1_Click(object sender, EventArgs e)
+        /*private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = GetAllLuotGuiXe().Tables[0];
             //dataGridView1.DataMember = "LuotGuiXe";
-        }
+        }*/
 
         private void hienthi()
         {
@@ -121,12 +110,8 @@ namespace HeThongBaiGiuXe
             //SqlDataAdapter
             return data;
         }
-        private void dataGridView1_Click(object sender, EventArgs e)
-        {
-            selectRow();
-        }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        /*private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
@@ -137,7 +122,7 @@ namespace HeThongBaiGiuXe
                 //txtTrangThaiThe.Text = row.Cells["TrangThaiThe"].Value.ToString();
                 //txtTinhTrangThe.Text = row.Cells["txtTinhTrangThe"].Value.ToString();
             }
-        }
+        }*/
 
         private void selectRow()
         {
@@ -145,11 +130,11 @@ namespace HeThongBaiGiuXe
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
                 //txtMaNhanXe.Text = row.Cells["MaNhanXe"].Value.ToString();
-                txtDinhDanhXe.Text = row.Cells["DinhDanhXe"].Value.ToString();
+                //txtDinhDanhXe.Text = row.Cells["DinhDanhXe"].Value.ToString();
                 //txtIDTheGuiXe.Text = row.Cells["IDTheGuiXe"].Value.ToString();
-                txtThoiGianNhanXe.Text = row.Cells["ThoiGianNhanXe"].Value.ToString();
-                txtThoiGianTraXe.Text = row.Cells["ThoiGianTraXe"].Value.ToString();
-                txtTrangThai.Text = row.Cells["TrangThai"].Value.ToString();
+                //txtThoiGianNhanXe.Text = row.Cells["ThoiGianNhanXe"].Value.ToString();
+                //txtThoiGianTraXe.Text = row.Cells["ThoiGianTraXe"].Value.ToString();
+                //txtTrangThai.Text = row.Cells["TrangThai"].Value.ToString();
             }
             else
             {
@@ -164,38 +149,28 @@ namespace HeThongBaiGiuXe
             f.ShowDialog();
         }
 
-        private void txtMaNhanXe_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxIDTheGuiXe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonNhapBen_Click(object sender, EventArgs e)
         {
-            string loaiXe = comboBoxLoaiXe.SelectedValue.ToString(); // Lấy giá trị của loại xe từ ComboBox
-            string dinhDanhXe = txtDinhDanhXe.Text.Trim(); // Lấy định danh xe từ TextBox
-            string idTheGuiXe = comboBoxIDTheGuiXe.SelectedValue.ToString(); // Lấy giá trị của ID thẻ gửi xe từ ComboBox
-            string trangThai = "Đã nhận xe"; // Lấy trạng thái từ TextBox
-            string thoiGianNhanXe = txtThoiGianNhanXe.Text.Trim(); // Lấy thời gian nhận xe từ TextBox
-            string thoiGianTraXe = txtThoiGianTraXe.Text.Trim(); // Lấy thời gian trả xe từ TextBox
+            //string loaiXe = comboBoxLoaiXe.SelectedValue.ToString(); // Lấy giá trị của loại xe từ ComboBox
+            //string dinhDanhXe = txtDinhDanhXe.Text.Trim(); // Lấy định danh xe từ TextBox
+            //string idTheGuiXe = comboBoxIDTheGuiXe.SelectedValue.ToString(); // Lấy giá trị của ID thẻ gửi xe từ ComboBox
+            //string trangThai = "Đã nhận xe"; // Lấy trạng thái từ TextBox
+            //string thoiGianNhanXe = txtThoiGianNhanXe.Text.Trim(); // Lấy thời gian nhận xe từ TextBox
+            //string thoiGianTraXe = txtThoiGianTraXe.Text.Trim(); // Lấy thời gian trả xe từ TextBox
 
-            // Thực hiện cập nhật dữ liệu vào cơ sở dữ liệu
-            UpdateData(loaiXe, dinhDanhXe, idTheGuiXe, trangThai, thoiGianNhanXe, thoiGianTraXe);
+            //Thực hiện cập nhật dữ liệu vào cơ sở dữ liệu
+            //UpdateData(loaiXe, dinhDanhXe, idTheGuiXe, trangThai, thoiGianNhanXe, thoiGianTraXe);
 
-            // Hiển thị lại dữ liệu trên DataGridView sau khi cập nhật
+            ChupAnh f = new ChupAnh();
+            f.DialogClosed += Reload;
+            f.ShowDialog();
+        }
+
+        private void Reload(object sender, Boolean updated) {
             hienthi();
         }
 
-        private void UpdateData(string loaiXe, string dinhDanhXe, string idTheGuiXe, string trangThai, string thoiGianNhanXe, string thoiGianTraXe)
+        /*private void UpdateData(string loaiXe, string dinhDanhXe, string idTheGuiXe, string trangThai, string thoiGianNhanXe, string thoiGianTraXe)
         {
             try
             {
@@ -225,12 +200,8 @@ namespace HeThongBaiGiuXe
                 MessageBox.Show("Lỗi khi cập nhật cơ sở dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 MessageBox.Show("loaiXe: " + loaiXe + ". dinhDanhXe" + dinhDanhXe + ". idTheGuiXe: " + idTheGuiXe + ". thoiGianNhanXe: " + thoiGianNhanXe + ". thoiGianTraXe: " + thoiGianTraXe + ". trangThai: " + trangThai, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }*/
 
-        private void buttonXacNhan_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonXuatBen_Click(object sender, EventArgs e)
         {
@@ -239,80 +210,89 @@ namespace HeThongBaiGiuXe
                 // Lấy hàng được chọn từ dataGridView1
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Lấy dữ liệu từ hàng được chọn và chuyển đổi thành DataRow
-                DataRowView rowView = (DataRowView)selectedRow.DataBoundItem;
-                DataRow row = rowView.Row;
+                // Lấy dữ liệu từ hàng được chọn
+                string idLuotGuiXe = selectedRow.Cells["id"].Value.ToString();
+                string tenLoaiXe = selectedRow.Cells["TenLoaiXe"].Value.ToString();
+                string idLoaiXe = selectedRow.Cells["IdLoaiXe"].Value.ToString();
+                string dinhDanhXe = selectedRow.Cells["DinhDanhXe"].Value.ToString();
+                string idTheGuiXe = selectedRow.Cells["IdTheGuiXe"].Value.ToString();
+                string thoiGianNhanXe = selectedRow.Cells["ThoiGianNhanXe"].Value.ToString();
+                string thoiGianTraXe = selectedRow.Cells["ThoiGianTraXe"].Value.ToString();
 
-                // Gọi hàm UpdateLoiNhuanToDatabase với đối số là DataRow đã lấy được
-                UpdateLoiNhuanToDatabase(row);
+                // Chuyển dữ liệu đến form XuatBen
+                XuatBen f = new XuatBen();
+                f.SetData(idLuotGuiXe, tenLoaiXe, idLoaiXe, dinhDanhXe, idTheGuiXe, thoiGianNhanXe, thoiGianTraXe);
+                f.DialogClosed += Reload;
+                f.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một hàng trong bảng để xác định dữ liệu cần xử lý.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
-            {
-                // Mở kết nối
-                connection.Open();
 
-                // Câu truy vấn để lấy dữ liệu từ hai bảng LuotGuiXe và DoanhThu
-                string query = "SELECT LuotGuiXe.DinhDanhXe, TheGuiXe.MaSoThe, LuotGuiXe.ThoiGianNhanXe, LuotGuiXe.ThoiGianTraXe, LoaiXe.TenLoaiXe, LoaiXe.DonGiaGuiXe " +
-                                   "FROM LuotGuiXe " +
-                                   "INNER JOIN TheGuiXe ON LuotGuiXe.IdTheGuiXe = TheGuiXe.id " +
-                                   "INNER JOIN LoaiXe ON LuotGuiXe.IdLoaiXe = LoaiXe.id " +
-                                   "WHERE LuotGuiXe.TrangThai = N'Đã trả xe'";
+            //using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    // Mở kết nối
+            //    connection.Open();
 
-                // Tạo đối tượng SqlCommand để thực thi câu truy vấn
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    // Sử dụng SqlDataAdapter để lấy dữ liệu và đổ vào DataSet
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataSet dataset = new DataSet();
-                        adapter.Fill(dataset);
+            //    // Câu truy vấn để lấy dữ liệu từ hai bảng LuotGuiXe và DoanhThu
+            //    string query = "SELECT LuotGuiXe.DinhDanhXe, TheGuiXe.MaSoThe, LuotGuiXe.ThoiGianNhanXe, LuotGuiXe.ThoiGianTraXe, LoaiXe.TenLoaiXe, LoaiXe.DonGiaGuiXe " +
+            //                       "FROM LuotGuiXe " +
+            //                       "INNER JOIN TheGuiXe ON LuotGuiXe.IdTheGuiXe = TheGuiXe.id " +
+            //                       "INNER JOIN LoaiXe ON LuotGuiXe.IdLoaiXe = LoaiXe.id " +
+            //                       "WHERE LuotGuiXe.TrangThai = N'Đã trả xe'";
 
-                        // Tính lợi nhuận cho từng dòng dữ liệu
-                        foreach (DataRow row in dataset.Tables[0].Rows)
-                        {
-                            string loaiXe = row["TenLoaiXe"].ToString();
-                            decimal donGia = Convert.ToDecimal(row["DonGiaGuiXe"]);
+            //    // Tạo đối tượng SqlCommand để thực thi câu truy vấn
+            //    using (SqlCommand command = new SqlCommand(query, connection))
+            //    {
+            //        // Sử dụng SqlDataAdapter để lấy dữ liệu và đổ vào DataSet
+            //        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+            //        {
+            //            DataSet dataset = new DataSet();
+            //            adapter.Fill(dataset);
 
-                            // Khởi tạo biến lợi nhuận với giá trị mặc định
-                            decimal loiNhuan = 0;
+            //            // Tính lợi nhuận cho từng dòng dữ liệu
+            //            foreach (DataRow row in dataset.Tables[0].Rows)
+            //            {
+            //                string loaiXe = row["TenLoaiXe"].ToString();
+            //                decimal donGia = Convert.ToDecimal(row["DonGiaGuiXe"]);
 
-                            // Kiểm tra loại xe và gán giá trị lợi nhuận tương ứng
-                            if (loaiXe == "Xe Đạp")
-                            {
-                                loiNhuan = 1000; // Giá trị lợi nhuận cho xe đạp
-                            }
-                            else if (loaiXe == "Xe Máy")
-                            {
-                                loiNhuan = 3000; // Giá trị lợi nhuận cho xe máy
-                            }
-                            else
-                            {
-                                // Xử lý trường hợp khác nếu cần
-                            }
+            //                // Khởi tạo biến lợi nhuận với giá trị mặc định
+            //                decimal loiNhuan = 0;
 
-                            if (!dataset.Tables[0].Columns.Contains("Lợi nhuận"))
-                            {
-                                dataset.Tables[0].Columns.Add("Lợi nhuận", typeof(decimal)); // Thêm cột với kiểu dữ liệu là decimal
-                            }
+            //                // Kiểm tra loại xe và gán giá trị lợi nhuận tương ứng
+            //                if (loaiXe == "Xe Đạp")
+            //                {
+            //                    loiNhuan = 1000; // Giá trị lợi nhuận cho xe đạp
+            //                }
+            //                else if (loaiXe == "Xe Máy")
+            //                {
+            //                    loiNhuan = 3000; // Giá trị lợi nhuận cho xe máy
+            //                }
+            //                else
+            //                {
+            //                    // Xử lý trường hợp khác nếu cần
+            //                }
 
-                            // Thêm cột lợi nhuận vào DataSet
-                            row["Lợi nhuận"] = loiNhuan;
+            //                if (!dataset.Tables[0].Columns.Contains("Lợi nhuận"))
+            //                {
+            //                    dataset.Tables[0].Columns.Add("Lợi nhuận", typeof(decimal)); // Thêm cột với kiểu dữ liệu là decimal
+            //                }
+
+            //                // Thêm cột lợi nhuận vào DataSet
+            //                row["Lợi nhuận"] = loiNhuan;
 
 
-                            // Cập nhật dữ liệu lợi nhuận vào cơ sở dữ liệu
-                            UpdateLoiNhuanToDatabase(row); // Hàm này cần phải được xác định và triển khai để cập nhật dữ liệu vào cơ sở dữ liệu
-                        }
-                        // Gọi phương thức LoadDataToDataGridView từ form LoiNhuan và truyền DataSet vào
-                        LoiNhuan loiNhuanForm = new LoiNhuan();
-                        loiNhuanForm.LoadDataToDataGridView(dataset.Tables[0]);
-                    }
-                }
-            }
+            //                // Cập nhật dữ liệu lợi nhuận vào cơ sở dữ liệu
+            //                UpdateLoiNhuanToDatabase(row); // Hàm này cần phải được xác định và triển khai để cập nhật dữ liệu vào cơ sở dữ liệu
+            //            }
+            //            // Gọi phương thức LoadDataToDataGridView từ form LoiNhuan và truyền DataSet vào
+            //            LoiNhuan loiNhuanForm = new LoiNhuan();
+            //            loiNhuanForm.LoadDataToDataGridView(dataset.Tables[0]);
+            //        }
+            //    }
+            //}
         }
         public void UpdateLoiNhuanToDatabase(DataRow row)
         {
@@ -361,13 +341,7 @@ namespace HeThongBaiGiuXe
         }
 
 
-        private void XuatBenClosedHandler(object sender, Boolean updated)
-        {
-            if (updated)
-            {
-                hienthi();
-            }
-        }
+
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -400,7 +374,7 @@ namespace HeThongBaiGiuXe
 
 
 
-        private void AddOrUpdateRowToDataGridView2(string loaiXe, string dinhDanhXe, string idTheGuiXe, string trangThai, string thoiGianTraXe, DataSet data)
+        /*private void AddOrUpdateRowToDataGridView2(string loaiXe, string dinhDanhXe, string idTheGuiXe, string trangThai, string thoiGianTraXe, DataSet data)
         {
             // Kiểm tra xem DataSet đã có bảng nào chưa
             if (data.Tables.Count > 0 && data.Tables[0].Rows.Count > 0)
@@ -459,7 +433,7 @@ namespace HeThongBaiGiuXe
                 data.Tables.Add(newTable);
                 dataGridView2.DataSource = newTable;
             }
-        }
+        }*/
 
 
 

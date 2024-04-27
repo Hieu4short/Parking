@@ -68,16 +68,17 @@ namespace HeThongBaiGiuXe
 
         private void selectRow()
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.SelectedRows[0].Cells["id"] != null)
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
                 txtMaSoThe.Text = row.Cells["MaSoThe"].Value.ToString();
-                txtTrangThaiThe.Text = row.Cells["TrangThaiThe"].Value.ToString();
+                //txtTrangThaiThe.Text = row.Cells["TrangThaiThe"].Value.ToString();
+                cbTrangThaiThe.Text = row.Cells["TrangThaiThe"].Value.ToString();
                 txtTinhTrangThe.Text = row.Cells["TinhTrangThe"].Value.ToString();
             }
             else
             {
-                Debug.WriteLine("No selected row");
+                Debug.WriteLine("Không có hàng được chọn");
             }
         }
 
@@ -90,7 +91,7 @@ namespace HeThongBaiGiuXe
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@MaSoThe", txtMaSoThe.Text);
-                command.Parameters.AddWithValue("@TrangThaiThe", txtTrangThaiThe.Text);
+                command.Parameters.AddWithValue("@TrangThaiThe", cbTrangThaiThe.Text);
                 command.Parameters.AddWithValue("@TinhTrangThe", txtTinhTrangThe.Text);
 
                 command.ExecuteNonQuery();
@@ -117,5 +118,32 @@ namespace HeThongBaiGiuXe
                 hienthi();
             }
         }
+
+        private void buttonCapNhat_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.SelectedRows[0].Cells["id"] != null) {
+                    connection.Open();
+                    string sql = @"UPDATE TheGuiXe SET MaSoThe = @MaSoThe, TrangThaiThe = @TrangThaiThe, TinhTrangThe = @TinhTrangThe WHERE id = @id";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@MaSoThe", txtMaSoThe.Text);
+                    command.Parameters.AddWithValue("@TrangThaiThe", cbTrangThaiThe.Text);
+                    command.Parameters.AddWithValue("@TinhTrangThe", txtTinhTrangThe.Text);
+                    DataGridViewRow row = dataGridView1.SelectedRows[0];
+                    string id = row.Cells["id"].Value.ToString();
+                    command.Parameters.AddWithValue("@id", id);
+
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    dataGridView1.ClearSelection();
+                    hienthi();
+                } else
+                {
+                    MessageBox.Show("Không có dòng được chọn.");
+                }
+            }
+        }
+
     }
 }

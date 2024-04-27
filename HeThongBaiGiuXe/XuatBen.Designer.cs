@@ -30,6 +30,8 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.labelID = new System.Windows.Forms.Label();
             this.textBoxThoiGianNhanXe = new System.Windows.Forms.TextBox();
             this.textBoxThoiGianTraXe = new System.Windows.Forms.TextBox();
             this.textBoxTrangThai = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@
             this.labelDinhDanhXe = new System.Windows.Forms.Label();
             this.labelLoaiXe = new System.Windows.Forms.Label();
             this.buttonTraXe = new System.Windows.Forms.Button();
-            this.labelID = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(409, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(379, 246);
+            this.pictureBox1.Size = new System.Drawing.Size(379, 306);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -77,6 +77,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(390, 304);
             this.panel1.TabIndex = 1;
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(111, 29);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxID.TabIndex = 13;
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(43, 36);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(18, 13);
+            this.labelID.TabIndex = 12;
+            this.labelID.Text = "ID";
             // 
             // textBoxThoiGianNhanXe
             // 
@@ -196,22 +212,6 @@
             this.buttonTraXe.Text = "Trả xe";
             this.buttonTraXe.UseVisualStyleBackColor = true;
             this.buttonTraXe.Click += new System.EventHandler(this.buttonTraXe_Click);
-            // 
-            // labelID
-            // 
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(43, 36);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(18, 13);
-            this.labelID.TabIndex = 12;
-            this.labelID.Text = "ID";
-            // 
-            // textBoxID
-            // 
-            this.textBoxID.Location = new System.Drawing.Point(111, 29);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxID.TabIndex = 13;
             // 
             // XuatBen
             // 

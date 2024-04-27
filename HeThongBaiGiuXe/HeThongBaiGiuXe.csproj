@@ -104,6 +104,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCao.Designer.cs">
+      <DependentUpon>FormBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThongQuanLi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBaoCao.resx">
+      <DependentUpon>FormBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThongQuanLi.resx">
       <DependentUpon>HeThongQuanLi.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +188,8 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="TheGuiXe.resx">
       <DependentUpon>TheGuiXe.cs</DependentUpon>
     </EmbeddedResource>

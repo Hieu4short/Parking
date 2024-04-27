@@ -47,8 +47,8 @@ namespace HeThongBaiGiuXe
 
         private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DoanhThu f = new DoanhThu();
-            f.ShowDialog();
+            FormBaoCao formBaoCao = new FormBaoCao();
+            formBaoCao.ShowDialog();
         }
 
         private void lượtGửiXeToolStripMenuItem_Click(object sender, EventArgs e)

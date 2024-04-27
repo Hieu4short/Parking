@@ -13,7 +13,7 @@ namespace HeThongBaiGiuXe
 {
     public partial class ConnectionString : Form
     {
-        public static string connectionString = @"Data Source=DESKTOP-CLCRRT4;Initial Catalog=BaiGiuXe;Integrated Security=True;TrustServerCertificate=True";
+        public static string connectionString = @"Data Source=DESKTOP-NNRDGLA\SQLEXPRESS;Initial Catalog=BaiGiuXe;Integrated Security=True;";
 
         public ConnectionString()
         {

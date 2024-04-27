@@ -39,6 +39,8 @@
             this.txtMaSoThe = new System.Windows.Forms.TextBox();
             this.buttonThemThe = new System.Windows.Forms.Button();
             this.buttonXoaThe = new System.Windows.Forms.Button();
+            this.buttonCapNhat = new System.Windows.Forms.Button();
+            this.cbTrangThaiThe = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +64,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbTrangThaiThe);
             this.panel2.Controls.Add(this.labelTrangThaiThe);
             this.panel2.Controls.Add(this.labelTinhTrangThe);
             this.panel2.Controls.Add(this.labelMaSoThe);
@@ -127,7 +130,7 @@
             // buttonThemThe
             // 
             this.buttonThemThe.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemThe.Location = new System.Drawing.Point(298, 402);
+            this.buttonThemThe.Location = new System.Drawing.Point(148, 401);
             this.buttonThemThe.Name = "buttonThemThe";
             this.buttonThemThe.Size = new System.Drawing.Size(110, 30);
             this.buttonThemThe.TabIndex = 2;
@@ -146,11 +149,34 @@
             this.buttonXoaThe.UseVisualStyleBackColor = true;
             this.buttonXoaThe.Click += new System.EventHandler(this.buttonXoaThe_Click);
             // 
+            // buttonCapNhat
+            // 
+            this.buttonCapNhat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCapNhat.Location = new System.Drawing.Point(291, 402);
+            this.buttonCapNhat.Name = "buttonCapNhat";
+            this.buttonCapNhat.Size = new System.Drawing.Size(110, 29);
+            this.buttonCapNhat.TabIndex = 4;
+            this.buttonCapNhat.Text = "Cập nhật";
+            this.buttonCapNhat.UseVisualStyleBackColor = true;
+            this.buttonCapNhat.Click += new System.EventHandler(this.buttonCapNhat_Click);
+            // 
+            // cbTrangThaiThe
+            // 
+            this.cbTrangThaiThe.FormattingEnabled = true;
+            this.cbTrangThaiThe.Items.AddRange(new object[] {
+            "Trống",
+            "Đang sử dụng"});
+            this.cbTrangThaiThe.Location = new System.Drawing.Point(321, 58);
+            this.cbTrangThaiThe.Name = "cbTrangThaiThe";
+            this.cbTrangThaiThe.Size = new System.Drawing.Size(121, 21);
+            this.cbTrangThaiThe.TabIndex = 7;
+            // 
             // TheGuiXe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCapNhat);
             this.Controls.Add(this.buttonXoaThe);
             this.Controls.Add(this.buttonThemThe);
             this.Controls.Add(this.panel2);
@@ -179,5 +205,7 @@
         private System.Windows.Forms.Label labelTinhTrangThe;
         private System.Windows.Forms.Label labelMaSoThe;
         private System.Windows.Forms.Label labelTrangThaiThe;
+        private System.Windows.Forms.Button buttonCapNhat;
+        private System.Windows.Forms.ComboBox cbTrangThaiThe;
     }
 }

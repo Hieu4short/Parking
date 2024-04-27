@@ -87,28 +87,22 @@ namespace HeThongBaiGiuXe
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         Modify modify = new Modify();
 
-        //private void DoanhThu_Load(object sender, EventArgs e)
-        //{
-        //    reportViewer1.LocalReport.ReportEmbeddedResource = "HeThongBaiGiuXe.Report2.rdlc";
-        //    ReportDataSource reportDataSource = new ReportDataSource();
-        //    reportDataSource.Name = "DataSetDoanhThu";
-        //    reportDataSource.Value = modify.Table("SELECT * FROM DoanhThu");
-        //    reportViewer1.LocalReport.DataSources.Add(reportDataSource);
-        //    this.reportViewer1.RefreshReport();
-        //}
         private void DoanhThu_Load(object sender, EventArgs e)
+        {
+            reportViewer1.LocalReport.ReportEmbeddedResource = "HeThongBaiGiuXe.Report2.rdlc";
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "DataSetDoanhThu";
+            reportDataSource.Value = modify.Table("SELECT * FROM DoanhThu");
+            reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+            this.reportViewer1.RefreshReport();
+        }
+
+
+
+        /*private void DoanhThu_Load(object sender, EventArgs e)
         {
             reportViewer1.LocalReport.ReportEmbeddedResource = "HeThongBaiGiuXe.Report2.rdlc";
 
@@ -143,9 +137,8 @@ namespace HeThongBaiGiuXe
                     reportDataSource.Value = dataTable;
                     reportViewer1.LocalReport.DataSources.Add(reportDataSource);
                 }
-            }
+            }*/
 
-            this.reportViewer1.RefreshReport();
-        }
+            //this.reportViewer1.RefreshReport();
     }
 }

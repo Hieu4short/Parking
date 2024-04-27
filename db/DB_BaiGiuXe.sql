@@ -80,7 +80,7 @@ CREATE TABLE LuotGuiXe (
 	FOREIGN KEY (IdLoaiXe) REFERENCES dbo.LoaiXe(id)
 );
 
-ALTER TABLE LuotGuiXe ALTER COLUMN IdLoaiXe NVARCHAR(20);
+/*ALTER TABLE LuotGuiXe ALTER COLUMN IdLoaiXe NVARCHAR(20);*/
 
 
 INSERT INTO LuotGuiXe (IdLoaiXe, DinhDanhXe, IdTheGuiXe, ThoiGianNhanXe, ThoiGianTraXe, TrangThai) VALUES ('6', '65B137986', 2, '2024-03-20 12:45:31', '2024-03-20 14:45:11', 'Đã trả xe');
@@ -110,7 +110,7 @@ CREATE TABLE DoanhThu (
 	FOREIGN KEY (IdLuotGuiXe) REFERENCES dbo.LuotGuiXe(id)
 );
 
-INSERT INTO DoanhThu (NgayThucHien, DoanhThu) VALUES ('2024-03-20 15:29:21', 2000);
+INSERT INTO DoanhThu (NgayThucHien, DoanhThu) VALUES ('2024-03-20 15:29:21', 3000);
 INSERT INTO DoanhThu (NgayThucHien, DoanhThu) VALUES ('2024-03-20 14:45:11', 2000);
 INSERT INTO DoanhThu (NgayThucHien, DoanhThu, IdLuotGuiXe) VALUES (GETDATE(), 2000, 3);
 SELECT * FROM DoanhThu;

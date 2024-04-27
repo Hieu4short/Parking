@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 20.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DB_BaiGiuXe_ext", "DB_BaiGiuXe_ext\DB_BaiGiuXe_ext.ssmssqlproj", "{97EEEF07-0176-4491-BCED-06ACCF82EFCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9759ED40-EC61-4D26-A5A2-219AFBABD23A}.Default|Default.ActiveCfg = Default
+		{97EEEF07-0176-4491-BCED-06ACCF82EFCA}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAAB0F2A-8561-4900-90A4-F2B138F22C21}
+	EndGlobalSection
+EndGlobal

@@ -22,7 +22,7 @@ namespace HeThongBaiGiuXe
             InitializeComponent();
         }
 
-        public void SetData(string idLuotGuiXe, string tenLoaiXe, string IdLoaiXe, string dinhDanhXe, string IdTheGuiXe, string TrangThai, string ThoiGianNhanXe)
+        public void SetData(string idLuotGuiXe, string tenLoaiXe, string IdLoaiXe, string dinhDanhXe, string IdTheGuiXe, string ThoiGianNhanXe, string ThoiGianTraXe)
         {
             /*string txtInputTenLoaiXe = tenLoaiXe;
             string txtInputIdLoaiXe = IdLoaiXe;
@@ -36,7 +36,6 @@ namespace HeThongBaiGiuXe
             //textBoxIDLoaiXe.Text = IdLoaiXe;
             textBoxDinhDanhXe.Text = dinhDanhXe;
             textBoxIDTheGuiXe.Text = IdTheGuiXe;
-            textBoxTrangThai.Text = TrangThai;
             textBoxThoiGianNhanXe.Text = ThoiGianNhanXe;
             textBoxThoiGianTraXe.Text = "";
         }
@@ -100,6 +99,27 @@ namespace HeThongBaiGiuXe
                         command.Parameters.AddWithValue("@id", id);
                         command.Parameters.AddWithValue("@ThoiGianTraXe", thoiGianTraXe);
                         // Thực thi câu lệnh SQL
+                        command.ExecuteNonQuery();
+                    }
+                    decimal dongia = 0;
+                    string queryDonGia = "SELECT DonGiaGuiXe From LoaiXe WHERE id = (SELECT IdLoaiXe FROM LuotGuiXe as LGX WHERE LGX.id = @idLuotGuiXe)";
+                    using (SqlCommand command = new SqlCommand(queryDonGia, connection)) {
+                        command.Parameters.AddWithValue("@idLuotGuiXe", id);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                dongia = reader.GetDecimal(0);
+                            }
+                        }
+                    }
+
+                    string queryDoanhThu = "INSERT INTO DoanhThu (NgayThucHien, DoanhThu, IdLuotGuiXe) VALUES (@NgayThucHien, @DoanhThu, @IdLuotGuiXe)"; 
+                    using (SqlCommand command = new SqlCommand(queryDoanhThu, connection))
+                    {
+                        command.Parameters.AddWithValue("@NgayThucHien", thoiGianTraXe);
+                        command.Parameters.AddWithValue("@DoanhThu", dongia);
+                        command.Parameters.AddWithValue("@IdLuotGuiXe", id);
                         command.ExecuteNonQuery();
                     }
                     connection.Close();
