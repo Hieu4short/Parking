@@ -51,9 +51,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(409, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(264, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(379, 306);
+            this.pictureBox1.Size = new System.Drawing.Size(524, 372);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -75,7 +76,7 @@
             this.panel1.Controls.Add(this.labelLoaiXe);
             this.panel1.Location = new System.Drawing.Point(6, 14);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(390, 304);
+            this.panel1.Size = new System.Drawing.Size(239, 304);
             this.panel1.TabIndex = 1;
             // 
             // textBoxID

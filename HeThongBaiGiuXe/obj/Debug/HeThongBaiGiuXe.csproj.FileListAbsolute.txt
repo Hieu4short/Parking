@@ -155,3 +155,4 @@ D:\Niên luận\nlcs\Parking\HeThongBaiGiuXe\obj\Debug\HeThongB.DA11E76A.Up2Date
 D:\Niên luận\nlcs\Parking\HeThongBaiGiuXe\obj\Debug\HeThongBaiGiuXe.exe
 D:\Niên luận\nlcs\Parking\HeThongBaiGiuXe\obj\Debug\HeThongBaiGiuXe.pdb
 D:\Niên luận\nlcs\Parking\HeThongBaiGiuXe\obj\Debug\HeThongBaiGiuXe.FormBaoCao.resources
+D:\Niên luận\nlcs\Parking\HeThongBaiGiuXe\obj\Debug\HeThongBaiGiuXe.TruyXuatHinhAnh.resources

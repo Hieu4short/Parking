@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,23 @@ namespace HeThongBaiGiuXe
             hienthi();
             LoadLoaiXeComboBox();
             LoadIDTheGuiXeComboBox();
+
+            dataGridView1.Columns["HinhAnhTrichXuat"].Visible = false;
+            DataGridViewButtonColumn buttonColumn1 = new DataGridViewButtonColumn();
+            buttonColumn1.HeaderText = "Truy xuất ảnh";
+            buttonColumn1.Text = "Mở hình ảnh";
+            buttonColumn1.UseColumnTextForButtonValue = true; // Hiển thị text trên nút
+            dataGridView1.Columns.Add(buttonColumn1);
+
+            dataGridView2.Columns["HinhAnhTrichXuat"].Visible = false;
+            DataGridViewButtonColumn buttonColumn2 = new DataGridViewButtonColumn();
+            buttonColumn2.HeaderText = "Truy xuất ảnh";
+            buttonColumn2.Text = "Mở hình ảnh";
+            buttonColumn2.UseColumnTextForButtonValue = true; // Hiển thị text trên nút
+            dataGridView2.Columns.Add(buttonColumn2);
         }
+
+
 
         private void LoadLoaiXeComboBox()
         {
@@ -166,7 +183,8 @@ namespace HeThongBaiGiuXe
             f.ShowDialog();
         }
 
-        private void Reload(object sender, Boolean updated) {
+        private void Reload(object sender, Boolean updated)
+        {
             hienthi();
         }
 
@@ -218,10 +236,12 @@ namespace HeThongBaiGiuXe
                 string idTheGuiXe = selectedRow.Cells["IdTheGuiXe"].Value.ToString();
                 string thoiGianNhanXe = selectedRow.Cells["ThoiGianNhanXe"].Value.ToString();
                 string thoiGianTraXe = selectedRow.Cells["ThoiGianTraXe"].Value.ToString();
+                Image photo = ByteArrayToImage((byte[])selectedRow.Cells["HinhAnhTrichXuat"]?.Value);
+
 
                 // Chuyển dữ liệu đến form XuatBen
                 XuatBen f = new XuatBen();
-                f.SetData(idLuotGuiXe, tenLoaiXe, idLoaiXe, dinhDanhXe, idTheGuiXe, thoiGianNhanXe, thoiGianTraXe);
+                f.SetData(idLuotGuiXe, tenLoaiXe, idLoaiXe, dinhDanhXe, idTheGuiXe, thoiGianNhanXe, thoiGianTraXe, photo);
                 f.DialogClosed += Reload;
                 f.ShowDialog();
             }
@@ -367,7 +387,39 @@ namespace HeThongBaiGiuXe
                     string trangThai = row.Cells["TrangThai"]?.Value?.ToString() ?? "";
                     string thoiGianTraXe = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
+                    if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                    {
+                        if (row.Cells["HinhAnhTrichXuat"]?.Value is System.DBNull)
+                        {
+                            MessageBox.Show("Không có hình ảnh để hiển thị");
+                        }
+                        else
+                        {
+                            // Mở form mới khi nút được click
+                            Image photo = ByteArrayToImage((byte[])row.Cells["HinhAnhTrichXuat"]?.Value);
+                            TruyXuatHinhAnh f = new TruyXuatHinhAnh(photo);
+                            f.ShowDialog();
+                        }
+                    }
+
                     //AddOrUpdateRowToDataGridView2(loaiXe, dinhDanhXe, idTheGuiXe, trangThai, thoiGianTraXe, data);
+                }
+            }
+        }
+
+        private Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            {
+                try
+                {
+                    return Image.FromStream(ms);
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý ngoại lệ nếu có
+                    Console.WriteLine("Lỗi khi chuyển đổi mảng byte thành hình ảnh: " + ex.Message);
+                    return null;
                 }
             }
         }
@@ -439,7 +491,29 @@ namespace HeThongBaiGiuXe
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView2.Rows.Count)
+            {
+                var row = dataGridView2.Rows[e.RowIndex] ?? null;
 
+                if (row != null)
+                {
+
+                    if (dataGridView2.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                    {
+                        if (row.Cells["HinhAnhTrichXuat"]?.Value is System.DBNull)
+                        {
+                            MessageBox.Show("Không có hình ảnh để hiển thị");
+                        }
+                        else
+                        {
+                            // Mở form mới khi nút được click
+                            Image photo = ByteArrayToImage((byte[])row.Cells["HinhAnhTrichXuat"]?.Value);
+                            TruyXuatHinhAnh f = new TruyXuatHinhAnh(photo);
+                            f.ShowDialog();
+                        }
+                    }
+                }
+            }
         }
     }
 }

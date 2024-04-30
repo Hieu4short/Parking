@@ -22,7 +22,7 @@ namespace HeThongBaiGiuXe
             InitializeComponent();
         }
 
-        public void SetData(string idLuotGuiXe, string tenLoaiXe, string IdLoaiXe, string dinhDanhXe, string IdTheGuiXe, string ThoiGianNhanXe, string ThoiGianTraXe)
+        public void SetData(string idLuotGuiXe, string tenLoaiXe, string IdLoaiXe, string dinhDanhXe, string IdTheGuiXe, string ThoiGianNhanXe, string ThoiGianTraXe, Image photo)
         {
             /*string txtInputTenLoaiXe = tenLoaiXe;
             string txtInputIdLoaiXe = IdLoaiXe;
@@ -37,7 +37,8 @@ namespace HeThongBaiGiuXe
             textBoxDinhDanhXe.Text = dinhDanhXe;
             textBoxIDTheGuiXe.Text = IdTheGuiXe;
             textBoxThoiGianNhanXe.Text = ThoiGianNhanXe;
-            textBoxThoiGianTraXe.Text = "";
+            textBoxThoiGianTraXe.Text = DateTime.Now.ToString();
+            pictureBox1.Image = photo;
         }
 
         private void textBoxLoaiXe_TextChanged(object sender, EventArgs e)

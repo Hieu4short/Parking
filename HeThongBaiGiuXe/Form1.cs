@@ -36,8 +36,8 @@ namespace HeThongBaiGiuXe
 
         bool Login (string Username, string Password) 
         {
-            return true;
-            //return AccountDAO.Instance.Login(Username, Password);
+            //return true;
+            return AccountDAO.Instance.Login(Username, Password);
         }
 
         private void buttonLogout_Exit(object sender, EventArgs e)

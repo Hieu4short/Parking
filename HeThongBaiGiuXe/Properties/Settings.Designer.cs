@@ -33,5 +33,16 @@ namespace HeThongBaiGiuXe.Properties {
                 return ((string)(this["BaiGiuXeConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-NNRDGLA\\SQLEXPRESS;Initial Catalog=BaiGiuXe;Integrated Securi" +
+            "ty=True;TrustServerCertificate=True")]
+        public string BaiGiuXeConnectionString1 {
+            get {
+                return ((string)(this["BaiGiuXeConnectionString1"]));
+            }
+        }
     }
 }

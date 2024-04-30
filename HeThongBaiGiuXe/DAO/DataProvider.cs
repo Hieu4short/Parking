@@ -27,7 +27,7 @@ namespace HeThongBaiGiuXe.DAO
         }
 
         private DataProvider() { }
-        private string connectionSTR = @"Data Source=DESKTOP-CLCRRT4;Initial Catalog=BaiGiuXe;Integrated Security=True;TrustServerCertificate=True";
+        private string connectionSTR = @"Data Source=DESKTOP-NNRDGLA\SQLEXPRESS;Initial Catalog=BaiGiuXe;Integrated Security=True;";
 
         public DataTable ExecuteQuery(string query, object[] parameters = null)
         {
